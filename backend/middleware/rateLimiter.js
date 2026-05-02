@@ -11,7 +11,7 @@ const loginLimiter = rateLimit({
 
 // 🤖 AI LIMIT (moderate)
 const aiLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 10 minutes
+  windowMs: 10 * 60 * 1000, // 10 minutes
   max: 20,
   message: {
     message: "Too many AI requests. Please slow down.",
