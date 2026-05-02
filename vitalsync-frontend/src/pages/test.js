@@ -16,7 +16,7 @@ export default function TestPage() {
           }
         );
 
-        console.log(res.data);
+        // console.log removed
       } catch (error) {
         console.error(error.response?.data || error.message);
       }

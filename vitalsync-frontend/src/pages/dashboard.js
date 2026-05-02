@@ -24,7 +24,7 @@ export default function Dashboard() {
 
         setData(res.data.message);
       } catch (error) {
-        console.log(error);
+        // console.log removed
       }
     };
 

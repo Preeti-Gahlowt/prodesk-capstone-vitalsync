@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(135deg, #f1faee, #ffffff);
+  background: linear-gradient(120deg, #f1faee, #f1faee);
 }
 
 /* Layout */
@@ -103,7 +103,7 @@ input {
   width: 100%;
   padding: 11px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #d71717;
   font-size: 14px;
   transition: 0.2s;
 }
@@ -148,3 +148,8 @@ input:focus {
 .signup-link span:hover {
   text-decoration: underline;
 }
+
+.error-text {
+  color: red;
+  margin-bottom: 10px;
+  font-size: 14px;}

@@ -1,0 +1,86 @@
+/* Background */
+.booking-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f5f2; /* cream */
+}
+
+/* Card */
+.booking-card {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.booking-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #e63946; /* red */
+}
+
+/* Labels */
+.booking-card label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Inputs */
+.booking-card input,
+.booking-card select,
+.booking-card textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* Focus */
+.booking-card input:focus,
+.booking-card select:focus,
+.booking-card textarea:focus {
+  border-color: #e63946;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Submit */
+.submit-btn {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Cancel */
+.cancel-btn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Hover */
+.submit-btn:hover {
+  background: #c92c3a;
+}
+
+.cancel-btn:hover {
+  background: #111;
+}

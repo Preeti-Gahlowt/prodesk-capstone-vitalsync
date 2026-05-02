@@ -1,27 +1,46 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
+const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
+const helmet = require("helmet");
 
-dotenv.config();
-connectDB();
+
+
+
+const authRoutes = require("./routes/authRoutes");
+const taskRoutes = require("./routes/taskRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+const appointmentRoutes = require("./routes/appointmentRoutes");
+const aiRoutes = require("./routes/aiRoutes");
+
 
 const app = express();
 
+/* Middleware */
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/auth", require("./routes/authRoutes"));
 
-app.get("/", (req, res) => {
-  res.send("VitalSync API Running...");
-});
+/* Routes */
+app.use("/api/auth", authRoutes);
+app.use("/api/tasks", taskRoutes);
+app.use("/api/ai", aiRoutes);
 
-const PORT = process.env.PORT || 5000;
+// Use payment routes
+app.use("/api/payment", paymentRoutes);
+// appoinment route for fetching, canceling, rescheduling appointments
+app.use("/api/appointments", appointmentRoutes);
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-const { protect } = require("./middleware/authMiddleware");
+// helmet for security headers
+app.use(helmet());
 
-app.get("/api/test", protect, (req, res) => {
-  res.json({ message: "Protected route working", user: req.user });
+
+/* DB */
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("DB Connected"))
+  .catch((err) => {})// console.log removed)
+
+/* Server */
+app.listen(5000, () => {
+  // console.log removed
 });
