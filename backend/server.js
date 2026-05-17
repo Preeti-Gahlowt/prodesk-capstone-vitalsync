@@ -4,7 +4,12 @@ const cors = require("cors");
 require("dotenv").config();
 const helmet = require("helmet");
 
+const app = express();
 
+// msg for testing server 
+app.get("/", (req, res) => {
+  res.send("VitalSync Backend is Running");
+});
 
 
 const authRoutes = require("./routes/authRoutes");
@@ -14,7 +19,7 @@ const appointmentRoutes = require("./routes/appointmentRoutes");
 const aiRoutes = require("./routes/aiRoutes");
 
 
-const app = express();
+
 
 /* Middleware */
 app.use(cors());
