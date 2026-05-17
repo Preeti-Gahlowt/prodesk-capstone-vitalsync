@@ -8,13 +8,13 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!token) {
-      window.location.href = `${process.env.REACT_APP_API_URL}/login`;
+      window.location.href = "/login";
     }
 
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/test`,
+          "http://localhost:5000/api/test",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    window.location.href = `${process.env.REACT_APP_API_URL}/login`;
+    window.location.href = "/login";
   };
 
   return (

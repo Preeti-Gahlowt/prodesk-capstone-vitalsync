@@ -9,7 +9,7 @@ export default function DoctorDashboard() {
 
 const handleLogout = () => {
   localStorage.clear();
-  navigate(`${process.env.REACT_APP_API_URL}/login`);
+  navigate("/login");
 };
     const [name, setName] = useState("");
         useEffect(() => {

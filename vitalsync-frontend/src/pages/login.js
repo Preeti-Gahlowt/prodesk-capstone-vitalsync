@@ -18,7 +18,7 @@ export default function Login() {
 
     try {
        
-      const res = await API.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
+      const res = await API.post("/auth/login", {
         email,
         password,
         role,
@@ -38,9 +38,9 @@ export default function Login() {
 
       // redirect
       if (res.data.role === "doctor") {
-        navigate(`${process.env.REACT_APP_API_URL}/doctor`);
+        navigate("/doctor");
       } else {
-        navigate(`${process.env.REACT_APP_API_URL}/patient`);
+        navigate("/patient");
       }
 
     } catch (err) {
@@ -76,7 +76,7 @@ export default function Login() {
 
         <button type="submit">Login</button>
 
-        <div className="link" onClick={() => navigate(`${process.env.REACT_APP_API_URL}/register`)}>
+        <div className="link" onClick={() => navigate("/register")}>
           Don't have an account? Sign up
         </div>
       </form>

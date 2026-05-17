@@ -16,7 +16,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      await API.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
+      await API.post("/auth/register", {
         name,
         role,
         email,
@@ -25,7 +25,7 @@ export default function Register() {
       });
 
       alert("Registered successfully");
-      navigate(`${process.env.REACT_APP_API_URL}/login`);
+      navigate("/login");
 
     } catch (err) {
        setError(err.response?.data?.message ||  err.response?.data?.error || "Registration failed");
@@ -63,7 +63,7 @@ export default function Register() {
 
         <button type="submit">Register</button>
 
-        <div className="link" onClick={() => navigate(`${process.env.REACT_APP_API_URL}/login`)}>
+        <div className="link" onClick={() => navigate("/login")}>
           Already have an account? Login
         </div>
       </form>

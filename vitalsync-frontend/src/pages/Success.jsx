@@ -19,7 +19,7 @@ const Success = () => {
     verifyPayment();
 
     const timer = setTimeout(() => {
-      navigate(`${process.env.REACT_APP_API_URL}/patient`);
+      navigate("/patient");
     }, 3000);
 
     return () => clearTimeout(timer); // cleanup on unmount
@@ -29,7 +29,7 @@ const Success = () => {
     <div style={{ textAlign: "center", marginTop: "100px" }}>
       <h2>✅ Payment Successful!</h2>
       <p>Your appointment has been booked.</p>
-      <button onClick={() => navigate(`${process.env.REACT_APP_API_URL}/patient`)}>
+      <button onClick={() => navigate("/patient")}>
         Go to Dashboard
       </button>
     </div>
