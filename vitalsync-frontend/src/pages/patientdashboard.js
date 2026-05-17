@@ -110,7 +110,7 @@ const handleReschedule = async (id) => {
 
 const handleLogout = () => {
   localStorage.clear();   // removes token, name, role
-  navigate("/login");
+  navigate(`${process.env.REACT_APP_API_URL}/login`);
 };
     const [name, setName] = useState("");
 useEffect(() => {

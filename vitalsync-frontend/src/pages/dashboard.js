@@ -8,7 +8,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!token) {
-      window.location.href = "/login";
+      window.location.href = `${process.env.REACT_APP_API_URL}/login`;
     }
 
     const fetchData = async () => {
@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/login";
+    window.location.href = `${process.env.REACT_APP_API_URL}/login`;
   };
 
   return (

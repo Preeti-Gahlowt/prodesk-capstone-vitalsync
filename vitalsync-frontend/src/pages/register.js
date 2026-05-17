@@ -25,7 +25,7 @@ export default function Register() {
       });
 
       alert("Registered successfully");
-      navigate("/login");
+      navigate(`${process.env.REACT_APP_API_URL}/login`);
 
     } catch (err) {
        setError(err.response?.data?.message ||  err.response?.data?.error || "Registration failed");
@@ -63,7 +63,7 @@ export default function Register() {
 
         <button type="submit">Register</button>
 
-        <div className="link" onClick={() => navigate("/login")}>
+        <div className="link" onClick={() => navigate(`${process.env.REACT_APP_API_URL}/login`)}>
           Already have an account? Login
         </div>
       </form>

@@ -38,9 +38,9 @@ export default function Login() {
 
       // redirect
       if (res.data.role === "doctor") {
-        navigate("/doctor");
+        navigate(`${process.env.REACT_APP_API_URL}/doctor`);
       } else {
-        navigate("/patient");
+        navigate(`${process.env.REACT_APP_API_URL}/patient`);
       }
 
     } catch (err) {
@@ -76,7 +76,7 @@ export default function Login() {
 
         <button type="submit">Login</button>
 
-        <div className="link" onClick={() => navigate("/register")}>
+        <div className="link" onClick={() => navigate(`${process.env.REACT_APP_API_URL}/register`)}>
           Don't have an account? Sign up
         </div>
       </form>
