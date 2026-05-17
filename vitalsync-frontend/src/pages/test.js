@@ -8,14 +8,17 @@ export default function TestPage() {
 
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/test",
+          
+          `${process.env.REACT_APP_API_URL}/api/test`,
+          
           {
             headers: {
               Authorization: `Bearer ${token}`,
+              
             },
           }
         );
-
+        console.log(res.data);
         // console.log removed
       } catch (error) {
         console.error(error.response?.data || error.message);

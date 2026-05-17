@@ -14,7 +14,7 @@ export default function Dashboard() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/test",
+          `${process.env.REACT_APP_API_URL}/api/test`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
