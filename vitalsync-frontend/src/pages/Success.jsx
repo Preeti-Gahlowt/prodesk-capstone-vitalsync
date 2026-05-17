@@ -9,7 +9,7 @@ const Success = () => {
   useEffect(() => {
     const verifyPayment = async () => {
       try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/payment/verify/${sessionId}`);
+        const res = await fetch(`/api/payment/verify/${sessionId}`);
         await res.json();
       } catch (err) {
         console.error("Verification error:", err);
