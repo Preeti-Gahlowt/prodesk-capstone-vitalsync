@@ -60,9 +60,7 @@ const registerUser = async (req, res) => {
 }
 };
 
-// Login User
 const loginUser = async (req, res) => {
- 
   try {
     // VALIDATE INPUT
     const result = loginSchema.safeParse(req.body);
@@ -74,12 +72,15 @@ const loginUser = async (req, res) => {
     }
 
     const { email, password, role } = result.data;
-   
 
     const user = await User.findOne({ email });
 
-    if (user && user.role === role && (await bcrypt.compare(password, user.password))) {
-      res.json({
+    if (
+      user &&
+      user.role === role &&
+      (await bcrypt.compare(password, user.password))
+    ) {
+      return res.json({
         _id: user._id,
         name: user.name,
         email: user.email,
@@ -87,21 +88,16 @@ const loginUser = async (req, res) => {
         token: generateToken(user._id),
       });
     } else {
-      res.status(401).json({ message: "Invalid email, password, or role" });
+      return res.status(401).json({
+        message: "Invalid email, password, or role",
+      });
     }
   } catch (err) {
-    // console.log removed
-
-    res.status(500).json({
+    return res.status(500).json({
       message: err.message,
     });
   }
- 
-
-  res.status(500).json({
-    message: "Server error",
-  });
-  };
+};
 
 module.exports = { registerUser, loginUser };
 
