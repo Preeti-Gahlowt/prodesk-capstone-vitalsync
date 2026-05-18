@@ -16,7 +16,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      await API.post(`${process.env.REACT_APP_API_URL}/auth/register`, {
+      await API.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
         name,
         role,
         email,
