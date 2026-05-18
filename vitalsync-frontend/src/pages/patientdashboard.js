@@ -20,7 +20,7 @@ const userId = user?._id;
  useEffect(() => {
   const fetchAppointments = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/appointments/${userId}`);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/appointments/${userId}`);
       const data = await res.json();
 
       // console.log removed // debug
@@ -50,7 +50,7 @@ const getAISymptoms = async () => {
       return;
     }
 
-    const res = await fetch("http://localhost:5000/api/ai/suggest", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/ai/suggest`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const getAISymptoms = async () => {
 
 const handleCancel = async (id) => {
   try {
-    await fetch(`/api/appointments/${id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/appointments/${id}`, {
       method: "DELETE",
     });
 
@@ -90,7 +90,7 @@ const handleReschedule = async (id) => {
 
   if (!newDate || !newTime) return;
 
-  const res = await fetch(`http://localhost:5000/api/appointments/${id}`, {
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/api/appointments/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

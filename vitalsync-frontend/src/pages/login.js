@@ -18,7 +18,7 @@ export default function Login() {
 
     try {
        
-      const res = await API.post("/auth/login", {
+      const res = await API.post(`${process.env.REACT_APP_API_URL}/auth/login`, {
         email,
         password,
         role,
